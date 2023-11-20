@@ -1,3 +1,64 @@
 body {
-  background-color: antiquewhite;
+  background-color: white;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.js-ph-wrapper{
+  display: flex;
+  justify-content: space-around;
+padding-bottom: 50px;
+
+}
+
+.operatory{
+  display: flex;
+ flex-direction: column;
+}
+
+.mood{
+ border: 1px solid grey;
+ padding: 25px;
+ border-radius: 5px;
+ width: 350px;
+ display: flex;
+ flex-direction: column;
+}
+
+.text1{
+font-size: 40px;
+text-align: center;
+}
+
+.text2{
+font-size: 20px;
+text-align: center;
+}
+
+.js-moods-delete{
+ background-color: white;
+ border: 1px solid grey;
+border: none;
+
+}
+.image{
+  display: flex;
+  justify-content: center;
+}
+.js-upload-input{
+  padding-bottom: 20px;
+}
+.js-mood-form{
+ display: flex;
+flex-direction: column;
+}
+.imageinput{
+  align-self: center;
+  padding-bottom: 20px;
+
+}
+.addmood, .description, .js-add-button{
+  align-self: center;
 }

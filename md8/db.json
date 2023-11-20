@@ -1,10 +1,12 @@
 {
-  "moods": [{
-    "id" : 1,
-    "name" : "ph1"
+  "moods": [
+    {
+      "name": "lllll",
+      "id": 1
     },
     {
-      "id" : 2,
-      "name" : "ph2"
-      }]
+      "name": "lllll",
+      "id": 2
+    }
+  ]
 }
