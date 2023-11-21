@@ -1,16 +1,3 @@
 {
-  "moods": [
-    {
-      "name": "lllll",
-      "id": 1
-    },
-    {
-      "name": "lllll",
-      "id": 2
-    },
-    {
-      "name": "lllll",
-      "id": 3
-    }
-  ]
+  "moods": []
 }

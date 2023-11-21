@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: space-around;
 padding-bottom: 50px;
+
 }
 
 .operatory{
@@ -46,18 +47,30 @@ border: none;
   display: flex;
   justify-content: center;
 }
-.js-upload-input{
-  padding-bottom: 20px;
-}
+
 .js-mood-form{
  display: flex;
+ align-items: center;
 flex-direction: column;
 }
-.imageinput{
+.js-upload-input{
   align-self: center;
   padding-bottom: 20px;
-
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 20px;
+  width: 200px;
 }
 .addmood, .description, .js-add-button{
   align-self: center;
+  font-size: 20px;
+}
+.js-add-button{
+  margin-top: 40px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }

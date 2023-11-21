@@ -20,36 +20,36 @@ import sum from './utils/sum/sum';
 
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-type mood = {
+type Moods = {
     id: number;
     url: string;
     name: string;
-    name2: string;
+    descript: string;
     createdDate: string;
     delete: string;
 }
+let moods : Moods[] = [];
+
 
 
 const dropmoods = ()=>{
-const result = axios.get<mood[]>(' http://localhost:3004/moods ');
+const result = axios.get<Moods[]>(' http://localhost:3004/moods ');
 const imageInput = document.querySelector<HTMLInputElement>('.js-upload-input');
         
 const wrappers = document.querySelector<HTMLDivElement>(".js-ph-wrapper");
  wrappers.innerHTML = '';
 
-
-
     result.then(({data}) :void =>{
-    data.forEach((moods : mood) => {
+    data.forEach((Moods : Moods) => {
         wrappers.innerHTML += `
         <div class="mood">
         <div class="image">
-        <img src="${moods.url}" width="150" height="150" >
+        <img src="${Moods.url}" width="150" height="150" >
         </div>
-         <h1 class= "text1">${moods.name}</h1>
+         <h1 class= "text1">${Moods.name}</h1>
          <br>
-         <h2 class= "text2">${moods.name2}</h2>
-         <button class="js-moods-delete" data-moods-delete="${moods.delete}">delete</button>
+         <h2 class= "text2">${Moods.descript}</h2>
+         <button class="js-moods-delete" data-moods-delete="${Moods.id}">delete</button>
          <hr>
          </div>
          ` 
@@ -57,11 +57,11 @@ const wrappers = document.querySelector<HTMLDivElement>(".js-ph-wrapper");
 const moodDelete = document.querySelectorAll<HTMLButtonElement>('.js-moods-delete');
     moodDelete.forEach((moodBtn: HTMLButtonElement) =>{
         moodBtn.addEventListener('click', async () =>{
-           const moodsId   = moodBtn.dataset;
+           const moodsId   = moodBtn.dataset.moodsDelete;
            // const moodsId = parseInt(moodBtn.dataset.id, 10);
         
            if(moodsId){
-            axios.delete( 'http://localhost:3004/moods/${moodsId}').then(() =>{
+            axios.delete(`http://localhost:3004/moods/${moodsId}`).then(() =>{
                 dropmoods(); 
             })
             }
@@ -84,7 +84,7 @@ moodform.addEventListener('submit', (event) =>{
     
 
 
-    axios.post<mood>( 'http://localhost:3004/moods', {
+    axios.post<Moods>( 'http://localhost:3004/moods', {
         name: moodnameInputValue,
     }).then (() =>{
         moodnameInput.value = '';
