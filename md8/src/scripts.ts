@@ -26,6 +26,7 @@ type mood = {
     name: string;
     name2: string;
     createdDate: string;
+    delete: string;
 }
 
 
@@ -36,6 +37,8 @@ const imageInput = document.querySelector<HTMLInputElement>('.js-upload-input');
 const wrappers = document.querySelector<HTMLDivElement>(".js-ph-wrapper");
  wrappers.innerHTML = '';
 
+
+
     result.then(({data}) :void =>{
     data.forEach((moods : mood) => {
         wrappers.innerHTML += `
@@ -45,23 +48,18 @@ const wrappers = document.querySelector<HTMLDivElement>(".js-ph-wrapper");
         </div>
          <h1 class= "text1">${moods.name}</h1>
          <br>
-         <h1 class= "text2">${moods.name2}</h1>
-         <button class="js-moods-delete" data-moods-id="${moods.id}">delete</button>
+         <h2 class= "text2">${moods.name2}</h2>
+         <button class="js-moods-delete" data-moods-delete="${moods.delete}">delete</button>
          <hr>
          </div>
          ` 
     });
-
-
-
 const moodDelete = document.querySelectorAll<HTMLButtonElement>('.js-moods-delete');
     moodDelete.forEach((moodBtn: HTMLButtonElement) =>{
         moodBtn.addEventListener('click', async () =>{
            const moodsId   = moodBtn.dataset;
            // const moodsId = parseInt(moodBtn.dataset.id, 10);
         
-          
-
            if(moodsId){
             axios.delete( 'http://localhost:3004/moods/${moodsId}').then(() =>{
                 dropmoods(); 
