@@ -30,7 +30,8 @@ type Moods = {
 }
 let moods : Moods[] = [];
 
- import { formatDistance, subDays } from 'date-fns'
+ import { formatDistance } from 'date-fns'
+import { enUS } from 'date-fns/locale';
 //const datefns = require("date-fns");
 //import { format, compareAsc } from 'date-fns'
 
@@ -54,7 +55,7 @@ const wrappers = document.querySelector<HTMLDivElement>(".js-ph-wrapper");
          <br>
          <h2 class= "text2">${Moods.descript}</h2>
          <button class="js-moods-delete" data-moods-delete="${Moods.id}">delete</button>
-        <div class="date">${Moods.createdDate}</div>
+        <div class="date">${formatDistance(new Date (), new Date(), { locale: enUS})}</div>
          <hr>
          </div>
          ` 
